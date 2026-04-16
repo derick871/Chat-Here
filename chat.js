@@ -49,7 +49,7 @@ function sendMessage() {
 }
 // receive message
 function receiveMessage(message) {
-    const messageElement = document.createElement('div');
+    const messageElement = document.createElement('receiver');
     messageElement.classList.add('message', 'receiver');
     const messageText=document.createElement('receiver');
     messageText.textContent = `${message.sender}: ${message.text}`;
