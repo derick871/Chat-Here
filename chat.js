@@ -29,4 +29,31 @@ function login() {
         alert('Invalid username or password');
     }
 }
-cno
+function sendMessage() {
+    const message=messageInput.value;
+    if (message.trim() !== '') {
+        const chatLog = document.getElementById('chat-log');
+        const messageElement = document.createElement('div');
+        messageElement.textContent = `${Username[currentUserId]}: ${message}`;
+        chatLog.appendChild(messageElement);
+        messageInput.value = '';
+        const tick=document.createElement('tick');
+        tick.classList.add('tick');
+        tick.textContent='✓';
+        messageTime.appendChild(tick);
+        chatLog.appendChild(messageTime);
+
+        messageInput.value = '';
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+}
+// receive message
+function receiveMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', 'receiver');
+    const messageText=document.createElement('receiver');
+    messageText.textContent = `${message.sender}: ${message.text}`;
+    messageElement.appendChild(messageText);
+    chatLog.appendChild(messageElement);
+    chatLog.scrollTop = chatLog.scrollHeight;
+}
