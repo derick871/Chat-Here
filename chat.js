@@ -47,7 +47,7 @@ function sendMessage() {
         messageInput.value = '';
         const tick=document.createElement('tick');
         tick.classList.add('tick');
-        tick.textContent='✓';
+        tick.textContent='tick';
         messageTime.appendChild(tick);
         chatLog.appendChild(messageTime);
 
@@ -60,8 +60,28 @@ function receiveMessage(message) {
     const messageElement = document.createElement('receiver');
     messageElement.classList.add('message', 'receiver');
     const messageText=document.createElement('receiver');
-    messageText.textContent = `${message.sender}: ${message.text}`;
+    messageText.textContent = `Friend: ${message}`;
     messageElement.appendChild(messageText);
+   const messageTime=document.createElement('message-time');
+    messageTime.classList.add('message-time');
+    const time=new Date().toLocaleTimeString();
+    messageTime.textContent = time;
+    messageElement.appendChild(messageTime);
+    const doubleTick=document.createElement('double-tick');
+    doubleTick.classList.add('double-tick');
+    doubleTick.textContent='double-tick';
+    messageTime.appendChild(doubleTick);
     chatLog.appendChild(messageElement);
     chatLog.scrollTop = chatLog.scrollHeight;
 }
+//sender double tick
+function updateMessageStatus(messageId, status) {
+    const messageElement = document.getElementById(messageId);
+    if (messageElement) {
+        const tick = messageElement.querySelector('.tick');
+        const doubleTick = messageElement.querySelector('.double-tick');
+        if (status === 'sent') {
+        } else if (status === 'delivered') {
+        } else if (status === 'read') 
+    }   
+}     
