@@ -14,6 +14,15 @@ let currentUserId=null;
 
 const username=localStorage.getItem('Username,password');
 const parsedUserName=JSON.parse(username,password);
+const sessionData = localStorage.getItem('user_session');
+
+if (userName) {
+    const user = JSON.parse(userName);
+    console.log("User is logged in:", user.name);
+} else {
+    console.log("No active session found.");
+}
+
 
 loginBtn.addEventListener('click', login);
 sendBtn.addEventListener('click', sendMessage);
